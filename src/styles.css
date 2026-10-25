@@ -1,0 +1,155 @@
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #101d31;
+  background: #f5f7fc;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-width: 320px;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+  background: #f5f7fc;
+}
+
+.app-shell {
+  min-height: 100vh;
+  padding: 28px 16px;
+  background: #f5f7fc;
+}
+
+.digits-card {
+  width: min(584px, 100%);
+  padding: 22px 21px 20px;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 10px 28px rgba(22, 35, 57, 0.08);
+}
+
+.card-heading h1 {
+  margin: 0;
+  color: #101d31;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.55px;
+  line-height: 1.25;
+}
+
+.card-heading p {
+  margin: 3px 0 14px;
+  color: #8792a5;
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.digits-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.digit-box {
+  display: flex;
+  aspect-ratio: 1 / 1;
+  min-width: 0;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #e7eaf0;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #101d31;
+  cursor: grab;
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1;
+  user-select: none;
+  transition:
+    border-color 120ms ease,
+    background-color 120ms ease,
+    box-shadow 120ms ease,
+    opacity 120ms ease;
+}
+
+.digit-box:hover {
+  border-color: #b9c8e0;
+}
+
+.digit-box:active {
+  cursor: grabbing;
+}
+
+.digit-box.is-dragging {
+  border: 1.5px solid #5c8cff;
+  box-shadow: 0 3px 8px rgba(54, 105, 224, 0.12);
+  opacity: 0.48;
+}
+
+.digit-box.is-drop-target {
+  border: 2px dashed #55d978;
+  background: #f0fff3;
+  box-shadow: 0 0 0 2px rgba(85, 217, 120, 0.08);
+}
+
+.card-tip {
+  margin-top: 13px;
+  color: #7d899d;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.card-tip code {
+  padding: 2px 5px;
+  border: 1px solid #e7ebf1;
+  border-radius: 4px;
+  background: #f8f9fb;
+  color: #8190a5;
+  font-family: inherit;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .app-shell {
+    padding: 18px 12px;
+  }
+
+  .digits-card {
+    padding: 20px 13px 17px;
+  }
+
+  .card-heading h1 {
+    font-size: 22px;
+  }
+
+  .digits-grid {
+    gap: 7px;
+  }
+
+  .digit-box {
+    border-radius: 8px;
+    font-size: clamp(19px, 6vw, 25px);
+  }
+
+  .card-tip {
+    font-size: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .digit-box {
+    transition: none;
+  }
+}
